@@ -258,3 +258,15 @@ void Matrix::swapC(int a, int b)
 		ar[i][b] = temp;
 	}
 }
+
+void Matrix::printE(Vector q)
+{
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			std::cout << std::scientific << ar[i][j] << ' ';
+		}
+		std::cout << std::scientific << q.ar[i] << '\n';
+	}
+}

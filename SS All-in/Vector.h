@@ -27,6 +27,8 @@ public:
 
 	void print();
 
+	void printH();
+
 	void init();
 
 	double norm1();

@@ -4,7 +4,7 @@
 
 double eps = 0.0000001;
 
-void si(Matrix a, Vector b, Vector x0)
+Vector si(Matrix a, Vector b, Vector x0)
 {
 	std::cout << "Simple Iteration" << std::endl;
 
@@ -23,6 +23,16 @@ void si(Matrix a, Vector b, Vector x0)
 		for (int j = 0; j < A.n; j++)
 			A.ar[i][j] /= lead;
 	}
+
+	Matrix B = Matrix(3, 3);
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			B.ar[i][j] = A.ar[i][j] * (i != j);
+
+	B.print();
+
+	std::cout << "Norm: " << B.norm1() << std::endl;
+	std::cout << std::endl;
 
 	bool fin = false;
 	int k = 0;
@@ -45,9 +55,10 @@ void si(Matrix a, Vector b, Vector x0)
 	}
 
 	(a*x - b).print();
+	return Vector(x);
 }
 
-void nm(Matrix a, Vector b, Vector x0)
+Vector nm(Matrix a, Vector b, Vector x0)
 {
 	std::cout << "Nekrasov's method" << std::endl;
 
@@ -66,7 +77,7 @@ void nm(Matrix a, Vector b, Vector x0)
 		for (int j = 0; j < A.n; j++)
 			A.ar[i][j] /= lead;
 	}
-
+	
 	bool fin = false;
 	int k = 0;
 	Vector x = x0;
@@ -88,6 +99,7 @@ void nm(Matrix a, Vector b, Vector x0)
 	}
 
 	(a*x - b).print();
+	return Vector(x);
 }
 
 void Task2()
@@ -113,13 +125,16 @@ void Task2()
 	b1.ar[1] = -4.484721;
 	b1.ar[2] = 0.09906;
 
+	A.print();
+	b1.print();
+
 	Vector x0 = Vector(3);
 	x0.ar[0] = 3;
 	x0.ar[1] = 4;
 	x0.ar[2] = 5;
 
-	si(A, b1, x0);
+	si(A, b1, x0).print();
 
-	nm(A, b1, x0);
+	nm(A, b1, x0).print();
 
 }

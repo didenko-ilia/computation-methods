@@ -81,6 +81,10 @@
     <ClCompile Include="Task1.2.cpp" />
     <ClCompile Include="Task1.cpp" />
     <ClCompile Include="Task2.cpp" />
+    <ClCompile Include="Task3.cpp" />
+    <ClCompile Include="Task4.cpp" />
+    <ClCompile Include="Task5.cpp" />
+    <ClCompile Include="Task6.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>

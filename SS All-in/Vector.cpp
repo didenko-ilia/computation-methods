@@ -98,6 +98,16 @@ void Vector::print()
 	std::cout << std::endl;
 }
 
+void Vector::printH()
+{
+	//std::cout << "Vector: " << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << ar[i] << ' ';
+	}
+	std::cout << '\n';
+}
+
 void Vector::init()
 {
 	int q;
@@ -146,9 +156,9 @@ double Vector::norminf()
 
 Vector &Vector::operator=(Vector &other)
 {
+	
+	if (n>0) delete[] ar;
 	n = other.n;
-	if (ar!=nullptr) delete[] ar;
-	ar = nullptr;
 	ar = new double[n];
 	for (int i = 0; i < n; i++)
 	{

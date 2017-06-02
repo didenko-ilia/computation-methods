@@ -40,6 +40,8 @@ public:
 	void init();
 
 	void swapC(int a, int b);
+
+	void printE(Vector q);
 };
 
 #endif
